@@ -1,7 +1,14 @@
 console.log('Chrome extension go');
 
-let paragraphs = document.getElementsByTagName('p');
 
-for(let paragraph of paragraphs){
-    paragraph.innerText = "Kitten";
+
+chrome.runtime.onMessage.addListener(gotMessage);
+
+function gotMessage(message,sender,sendResponse){
+    if(message.txt === 'Hello'){
+        let paragraphs = document.getElementsByTagName('p');
+        for(let element of paragraphs){
+            element.style.backgroundColor = '#FF00FF';
+        }
+    }
 }
