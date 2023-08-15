@@ -7,7 +7,6 @@ let contextMenuItem = {
 chrome.contextMenus.create(contextMenuItem);
 
 chrome.contextMenus.onClicked.addListener(function(clickedData){
-    console.log('Clicked context',clickedData);
     if(clickedData.menuItemId === 'spendMoney' && clickedData.selectionText){
         if(!isNaN(Number(clickedData.selectionText))){
             chrome.storage.sync.get(['total','limit'],function(budget){
@@ -20,5 +19,4 @@ chrome.contextMenus.onClicked.addListener(function(clickedData){
             })
         }
     }
-    // chrome.storage.sync.get()
 })

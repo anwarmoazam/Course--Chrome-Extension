@@ -5,7 +5,7 @@ saveLimitBtn.addEventListener('click', saveLimit);
 resetTotalBtn.addEventListener('click', resetTotal);
 
 chrome.storage.sync.get('limit', function (budget) {
-    document.getElementById('limit').value = budget.limit;
+    document.getElementById('limit').value = budget.limit || 0;
 })
 
 function saveLimit() {

@@ -4,8 +4,8 @@ let limit = document.getElementById('limit');
 
 
 chrome.storage.sync.get(['total', 'limit'], function (budget) {
-    total.innerText = budget.total;
-    limit.innerText = budget.limit;
+    total.innerText = budget.total || 0;
+    limit.innerText = budget.limit || 0;
 })
 
 button.addEventListener('click', updateTotal);
